@@ -614,6 +614,7 @@ GameObject:
   - component: {fileID: 1104345639}
   - component: {fileID: 1104345638}
   - component: {fileID: 1104345637}
+  - component: {fileID: 1104345640}
   m_Layer: 5
   m_Name: NoButton
   m_TagString: Untagged
@@ -685,7 +686,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 719538765}
+      - m_Target: {fileID: 1104345640}
         m_TargetAssemblyTypeName: Exit, Assembly-CSharp
         m_MethodName: NoButton
         m_Mode: 1
@@ -735,6 +736,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1104345635}
   m_CullTransparentMesh: 1
+--- !u!114 &1104345640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104345635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef9d3c31db5fd6a48bcb4e6ea4f06f68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1152500297
 GameObject:
   m_ObjectHideFlags: 0
@@ -1054,13 +1067,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2012040972}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: 0.00004915451, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 719538764}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0.006, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -0}
@@ -1116,6 +1129,7 @@ GameObject:
   - component: {fileID: 2042452796}
   - component: {fileID: 2042452795}
   - component: {fileID: 2042452794}
+  - component: {fileID: 2042452797}
   m_Layer: 5
   m_Name: YesButton
   m_TagString: Untagged
@@ -1187,9 +1201,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 719538760}
+      - m_Target: {fileID: 2042452797}
         m_TargetAssemblyTypeName: Exit, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: YesButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1237,6 +1251,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2042452792}
   m_CullTransparentMesh: 1
+--- !u!114 &2042452797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042452792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef9d3c31db5fd6a48bcb4e6ea4f06f68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

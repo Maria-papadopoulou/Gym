@@ -20976,6 +20976,7 @@ GameObject:
   m_Component:
   - component: {fileID: 338580423}
   - component: {fileID: 338580422}
+  - component: {fileID: 338580424}
   m_Layer: 0
   m_Name: CameraHolder
   m_TagString: Untagged
@@ -21012,6 +21013,19 @@ Transform:
   - {fileID: 1889739457}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &338580424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338580421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b0c6031b09523a4db8ba636cb3f2641, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraPosition: {fileID: 737888421}
 --- !u!1 &341819812
 GameObject:
   m_ObjectHideFlags: 0
@@ -26422,6 +26436,7 @@ GameObject:
   - component: {fileID: 442237055}
   - component: {fileID: 442237057}
   - component: {fileID: 442237058}
+  - component: {fileID: 442237059}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -26515,6 +26530,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a4bf416295ca4ee0a73b09c755b3c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &442237059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442237053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba25ec3bc011d55419830ba55d2b4281, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSpeed: 10
+  sprintSpeed: 20
+  groundDrag: 5
+  jumpForce: 7
+  jumpCooldown: 1
+  airMultiplier: 1
+  crouchSpeed: 5
+  crouchYScale: 1
+  jumpKey: 32
+  sprintKey: 304
+  crouchKey: 306
+  playerHeight: 2
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  orientation: {fileID: 541726683}
+  state: 0
 --- !u!1 &444474802
 GameObject:
   m_ObjectHideFlags: 0
@@ -110682,6 +110726,7 @@ GameObject:
   - component: {fileID: 1889739455}
   - component: {fileID: 1889739458}
   - component: {fileID: 1889739459}
+  - component: {fileID: 1889739460}
   m_Layer: 0
   m_Name: PlayerCam
   m_TagString: MainCamera
@@ -110790,6 +110835,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32886413a26f545358348a1f711c431b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1889739460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889739454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 596153a1c55dcb24eb0cb898b352f352, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensX: 400
+  sensY: 400
+  orientatation: {fileID: 541726683}
 --- !u!1 &1889937199
 GameObject:
   m_ObjectHideFlags: 0

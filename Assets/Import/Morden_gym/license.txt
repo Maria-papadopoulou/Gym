@@ -1,0 +1,11 @@
+Model Information:
+* title:	Morden gym
+* source:	https://sketchfab.com/3d-models/morden-gym-5be57c2380a44055a5dab89d4f847661
+* author:	Home Design 3D (https://sketchfab.com/homedesign3d)
+
+Model License:
+* license type:	CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
+* requirements:	Author must be credited. No commercial use. Modified versions must have the same license.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Morden gym" (https://sketchfab.com/3d-models/morden-gym-5be57c2380a44055a5dab89d4f847661) by Home Design 3D (https://sketchfab.com/homedesign3d) licensed under CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)

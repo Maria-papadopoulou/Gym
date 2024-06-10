@@ -49466,6 +49466,22 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4560317402585254076, guid: 428aa3269ddfa9042960e7c6a9c38113, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560317402585254076, guid: 428aa3269ddfa9042960e7c6a9c38113, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5215659163473792257, guid: 428aa3269ddfa9042960e7c6a9c38113, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5215659163473792257, guid: 428aa3269ddfa9042960e7c6a9c38113, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5845757247195102463, guid: 428aa3269ddfa9042960e7c6a9c38113, type: 3}
       propertyPath: m_Name
       value: Morden_gym

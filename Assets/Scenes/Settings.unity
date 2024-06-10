@@ -224,7 +224,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1197322478}
+      - m_Target: {fileID: 1197322477}
         m_TargetAssemblyTypeName: MusicPlayer, Assembly-CSharp
         m_MethodName: UpdateVolume
         m_Mode: 0
@@ -632,7 +632,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5b5c1f24f48dd4d49badf5bb6ff6ae83, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9873fa99bab27154ebb2ccad1b062f49, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2911,7 +2911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1c1ee2455de0974f8bf471e6c9c1a05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 140597006}
 --- !u!114 &1197322478
 MonoBehaviour:
   m_ObjectHideFlags: 0

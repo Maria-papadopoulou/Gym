@@ -10750,6 +10750,8 @@ Transform:
   - {fileID: 1698237928}
   - {fileID: 906898674}
   - {fileID: 1777526118}
+  - {fileID: 600022150}
+  - {fileID: 2142678811}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &159357052
@@ -35364,6 +35366,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1220062295}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &600022149
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 600022150}
+  - component: {fileID: 600022151}
+  m_Layer: 0
+  m_Name: Inv Wall 2nd Floor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &600022150
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600022149}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 24.8, y: -0.25, z: 29.3}
+  m_LocalScale: {x: 30, y: 1, z: 40}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 158975696}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &600022151
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600022149}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &600912809
 GameObject:
   m_ObjectHideFlags: 0
@@ -35810,11 +35865,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2190214664577184569, guid: 428aa3269ddfa9042960e7c6a9c38113, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.4
+      value: 203
       objectReference: {fileID: 0}
     - target: {fileID: 2190214664577184569, guid: 428aa3269ddfa9042960e7c6a9c38113, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -114.9
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2190214664577184569, guid: 428aa3269ddfa9042960e7c6a9c38113, type: 3}
       propertyPath: m_LocalPosition.z
@@ -35926,7 +35981,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5845757247195102463, guid: 428aa3269ddfa9042960e7c6a9c38113, type: 3}
       propertyPath: m_Name
-      value: Morden_gym (2)
+      value: Morden_gym Floor 2
       objectReference: {fileID: 0}
     - target: {fileID: 6284129608644725616, guid: 428aa3269ddfa9042960e7c6a9c38113, type: 3}
       propertyPath: m_Layer
@@ -68114,11 +68169,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2190214664577184569, guid: 428aa3269ddfa9042960e7c6a9c38113, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.4
+      value: 248
       objectReference: {fileID: 0}
     - target: {fileID: 2190214664577184569, guid: 428aa3269ddfa9042960e7c6a9c38113, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -47.5
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2190214664577184569, guid: 428aa3269ddfa9042960e7c6a9c38113, type: 3}
       propertyPath: m_LocalPosition.z
@@ -68230,7 +68285,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5845757247195102463, guid: 428aa3269ddfa9042960e7c6a9c38113, type: 3}
       propertyPath: m_Name
-      value: Morden_gym (1)
+      value: Morden_gym Floor 1
       objectReference: {fileID: 0}
     - target: {fileID: 6284129608644725616, guid: 428aa3269ddfa9042960e7c6a9c38113, type: 3}
       propertyPath: m_Layer
@@ -125251,6 +125306,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1220062295}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &2142678810
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2142678811}
+  - component: {fileID: 2142678812}
+  m_Layer: 0
+  m_Name: Inv Wall 1nd Floor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2142678811
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142678810}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 24.8, y: 0.09, z: 29.3}
+  m_LocalScale: {x: 30, y: 0.1, z: 40}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 158975696}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2142678812
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142678810}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2144476904
 GameObject:
   m_ObjectHideFlags: 0

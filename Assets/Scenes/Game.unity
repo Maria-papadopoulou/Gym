@@ -35377,7 +35377,7 @@ GameObject:
   - component: {fileID: 600022150}
   - component: {fileID: 600022151}
   m_Layer: 0
-  m_Name: Inv Wall 2nd Floor
+  m_Name: Inv Wall 1st Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35392,8 +35392,8 @@ Transform:
   m_GameObject: {fileID: 600022149}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.8, y: -0.25, z: 29.3}
-  m_LocalScale: {x: 30, y: 1, z: 40}
+  m_LocalPosition: {x: 24.8, y: -6, z: 29.3}
+  m_LocalScale: {x: 30, y: 0.1, z: 40}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 158975696}
@@ -125317,7 +125317,7 @@ GameObject:
   - component: {fileID: 2142678811}
   - component: {fileID: 2142678812}
   m_Layer: 0
-  m_Name: Inv Wall 1nd Floor
+  m_Name: Inv Wall 2nd Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -125332,7 +125332,7 @@ Transform:
   m_GameObject: {fileID: 2142678810}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.8, y: 0.09, z: 29.3}
+  m_LocalPosition: {x: 24.8, y: -0.13, z: 29.3}
   m_LocalScale: {x: 30, y: 0.1, z: 40}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -4,7 +4,7 @@
  * The class shows the custom inspector for a PathObject where the user can see and change the settings of the path. 
  * The class is also responsible for drawing the Bezier curve in the scene.
  * 
- * Author: Magnus Söderberg
+ * Author: Magnus Sï¿½derberg
  * Last updated 2022-03-22
  * 
  */
@@ -489,7 +489,7 @@ public class PathObjectEditor : Editor
             //Adds a red sphere at remaining points
             else
             {
-                newPos = Handles.FreeMoveHandle(bezier.singlePoint(i), Quaternion.identity, 4f, Vector3.zero, Handles.SphereHandleCap);
+                var fmh_492_72_638537308046886042 = Quaternion.identity; newPos = Handles.FreeMoveHandle(bezier.singlePoint(i), 4f, Vector3.zero, Handles.SphereHandleCap);
             }
 
             if (bezier.singlePoint(i) != newPos)

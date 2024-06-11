@@ -20766,7 +20766,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 338580423}
-  - component: {fileID: 338580422}
   - component: {fileID: 338580424}
   m_Layer: 0
   m_Name: CameraHolder
@@ -20775,18 +20774,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &338580422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 338580421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1554e7540debb4e449d4f1f450c27721, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &338580423
 Transform:
   m_ObjectHideFlags: 0
@@ -26194,8 +26181,6 @@ GameObject:
   m_Component:
   - component: {fileID: 442237054}
   - component: {fileID: 442237055}
-  - component: {fileID: 442237057}
-  - component: {fileID: 442237058}
   - component: {fileID: 442237059}
   m_Layer: 0
   m_Name: Player
@@ -26249,30 +26234,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &442237057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 442237053}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d409cf5747ac971418834dca8fa747ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &442237058
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 442237053}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a4bf416295ca4ee0a73b09c755b3c90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &442237059
 MonoBehaviour:
   m_ObjectHideFlags: 0

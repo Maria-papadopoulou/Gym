@@ -1,40 +1,53 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
- 
-public class PlayerInteraction : MonoBehaviour {
- 
-	public Camera mainCam;
-	public float interactionDistance = 2f;
- 
-	public GameObject interactionUI;
-	public TextMeshProUGUI interactionText;
- 
- 
-	private void Update() {
-		InteractionRay();
-	}
- 
-	void InteractionRay() {
-		Ray ray = mainCam.ViewportPointToRay(Vector3.one/2f);
-		RaycastHit hit;
- 
-		bool hitSomething = false;
- 
-		if (Physics.Raycast(ray, out hit, interactionDistance)) {
-			Interactable interactable = hit.collider.GetComponent<Interactable>();
- 
-			if (interactable != null) {
-				hitSomething = true;
-				interactionText.text = interactable.GetDescription();
- 
-				if (Input.GetKeyDown(KeyCode.E)) {
-					interactable.Interact();
-				}
-			}
-		}
- 
-		interactionUI.SetActive(hitSomething);
-	}
+
+public class PlayerInteraction : MonoBehaviour
+{
+    public Transform player;
+    public Transform megan;
+    public Canvas interactionCanvas;
+    public TextMeshProUGUI interactionText;
+    public TextMeshProUGUI keyText;
+
+    private bool isNearMegan = false;
+
+    void Start()
+    {
+        interactionCanvas.enabled = false; // Hide the interaction UI initially
+    }
+
+    void Update()
+    {
+        // Check the distance between the player and Megan
+        float distance = Vector3.Distance(player.position, megan.position);
+
+        // If the player is close enough to Megan
+        if (distance < 3.0f)
+        {
+            isNearMegan = true;
+            interactionCanvas.enabled = true; // Show the interaction UI
+            keyText.text = "E";
+            interactionText.text = "Press E to talk";
+        }
+        else
+        {
+            isNearMegan = false;
+            interactionCanvas.enabled = false; // Hide the interaction UI
+        }
+
+        // Check if the player presses 'E'
+        if (isNearMegan && Input.GetKeyDown(KeyCode.E))
+        {
+            // Perform the interaction, e.g., show a message
+            ShowInteractionMessage();
+        }
+    }
+
+    void ShowInteractionMessage()
+    {
+        // Show a message or perform any action
+        interactionText.text = "Hello!";
+        // Optionally, hide the key prompt
+        keyText.text = "";
+    }
 }

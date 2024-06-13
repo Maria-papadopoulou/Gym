@@ -15,7 +15,7 @@ public class PlayerInteract : MonoBehaviour
             foreach (Collider collider in colliderArray) {
                 if (collider.TryGetComponent(out NPCInteractable npcInteractable))
                 {
-                    
+                    npcInteractable.Interact();
                 }
             }
         }

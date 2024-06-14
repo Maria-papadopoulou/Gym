@@ -5,6 +5,12 @@ public class PauseMenuController : MonoBehaviour
     public GameObject pauseMenuUI;  // Reference to the Pause Menu UI
     private bool isPaused = false;
 
+    void Start(){
+        // Show and unlock the cursor in the shop scene
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))

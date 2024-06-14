@@ -8,13 +8,6 @@ public class PauseMenu : MonoBehaviour
     public static bool GameIsPaused = false;
 
     public GameObject pauseMenuUI;
-    public Canvas interactionCanvas;
-
-    void Start()
-    {
-        interactionCanvas.enabled = false; // Hide the interaction UI initially
-        pauseMenuUI.SetActive(false); // Hide the pause menu initially
-    }
 
     void Update()
     {
@@ -22,33 +15,30 @@ public class PauseMenu : MonoBehaviour
         {
             if (GameIsPaused)
             {
-                ResumeGame();
+                Resume();
             }
             else
             {
-                PauseGame();
+                Pause();
             }
         }
     }
 
-    public void PauseGame()
-    {
-        pauseMenuUI.SetActive(true);
-        Time.timeScale = 0f;
-        GameIsPaused = true;
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-        interactionCanvas.enabled = true; // Show the interaction UI
-    }
-
-    public void ResumeGame()
+    public void Resume()
     {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        interactionCanvas.enabled = false; // Hide the interaction UI
+    }
+    void Pause()
+    {
+        pauseMenuUI.SetActive(true);
+        Time.timeScale = 0f;
+        GameIsPaused = true;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void GoToMainMenu()

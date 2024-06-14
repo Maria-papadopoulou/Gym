@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public class ButtonInfo : MonoBehaviour
 {
     public int ItemID;
@@ -11,9 +10,10 @@ public class ButtonInfo : MonoBehaviour
     public Text QuantityTxt;
     public GameObject ShopManager;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        ShopManager shopManagerScript = ShopManager.GetComponent<ShopManager>();
+        PriceTxt.text = "Price: $" + shopManagerScript.shopItems[1, ItemID - 1].ToString();  // Adjusted to match the array index
+        QuantityTxt.text = shopManagerScript.shopItems[2, ItemID - 1].ToString();  // Adjusted to match the array index
     }
 }

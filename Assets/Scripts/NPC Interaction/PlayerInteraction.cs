@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerInteraction : MonoBehaviour
 {
@@ -45,9 +46,7 @@ public class PlayerInteraction : MonoBehaviour
 
     void ShowInteractionMessage()
     {
-        // Show a message or perform any action
-        interactionText.text = "Hello!";
-        // Optionally, hide the key prompt
-        keyText.text = "";
+        // Load the shop scene
+        SceneManager.LoadScene("Shop"); // Replace "ShopScene" with the name of your shop scene
     }
 }

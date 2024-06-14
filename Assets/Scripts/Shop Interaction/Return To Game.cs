@@ -5,14 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class ReturnToGame : MonoBehaviour
 {
-    public ShopManager shopManager;
+    // This function will be called when the script instance is being loaded
+    private void Start() {
+        // Initialization code here if needed
+    }
 
+    // This function will be called when the Confirm button is pressed
     public void ConfirmButton() {
-        // Save the current coins to PlayerPrefs
-        // PlayerPrefs.SetFloat("PlayerCoins", shopManager.coins);
-        // PlayerPrefs.Save();
-
-        // Load the "Game" scene
         SceneManager.LoadScene("Game");
     }
 }

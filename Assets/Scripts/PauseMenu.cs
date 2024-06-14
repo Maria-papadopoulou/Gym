@@ -13,6 +13,9 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            // Show and unlock the cursor in the shop scene
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             if (GameIsPaused)
             {
                 ResumeGame();

@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DialogueEditor;
 
 public class ConversationStarter : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private NPCConversation myConversation;
 
-    // Update is called once per frame
-    void Update()
+    private void onTriggerStay(Collider other)
     {
-        
+        if (other.CompareTag("Player"))
+        {
+            if(Input.GetKeyDown(KeyCode.F))
+            {
+                ConversationManager.Instance.StartConversation(myConversation);
+            }
+        }
     }
 }

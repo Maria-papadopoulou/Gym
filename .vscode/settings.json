@@ -51,5 +51,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Gym.sln"
+    "dotnet.defaultSolution": "Gym.sln",
+    "dotnet.preferCSharpExtension": true
 }

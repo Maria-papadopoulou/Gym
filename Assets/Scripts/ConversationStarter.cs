@@ -14,6 +14,8 @@ public class ConversationStarter : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.F))
             {
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
                 ConversationManager.Instance.StartConversation(myConversation);
             }
         }

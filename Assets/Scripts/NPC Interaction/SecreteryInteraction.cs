@@ -78,9 +78,23 @@ public class SecretaryInteraction : MonoBehaviour
 
     void ShowInteractionMessage()
     {
+        if (player != null)
+        {
+            // Disable PlayerMovement script
+            PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+            if (playerMovement != null)
+            {
+                playerMovement.enabled = false;
+            }
+            else
+            {
+                Debug.LogError("PlayerMovement script not found on Player.");
+            }
+        }
+
         if (conversationStarter != null && myConversation != null)
         {
-            // Use the ConversationManager to start the conversation
+            // Start the conversation
             conversationStarter.Resume(myConversation);
         }
         else
@@ -95,4 +109,5 @@ public class SecretaryInteraction : MonoBehaviour
             }
         }
     }
+
 }

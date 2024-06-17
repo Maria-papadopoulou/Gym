@@ -46,7 +46,13 @@ public class PlayerInteraction : MonoBehaviour
 
     void ShowInteractionMessage()
     {
-        // Load the shop scene
-        SceneManager.LoadScene("Shop"); // Replace "ShopScene" with the name of your shop scene
+        // Pause the game
+        OpenShopMenu.ShopIsPaused = true;
+        OpenShopMenu shopMenu = FindObjectOfType<OpenShopMenu>();
+        if (shopMenu != null)
+        {
+            shopMenu.Pause();
+        }
     }
+
 }

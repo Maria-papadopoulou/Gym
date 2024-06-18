@@ -1,40 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MusicPlayer : MonoBehaviour
 {
     public GameObject ObjectMusic;
 
-    private AudioSource audioSource;  // Use camelCase for private fields
+    private AudioSource audioSource;
     private float musicVolume = 1f;
 
     void Start()
     {
         ObjectMusic = GameObject.FindWithTag("gamemusic");
         audioSource = ObjectMusic.GetComponent<AudioSource>();
-
-        // Load the saved volume
-        if (PlayerPrefs.HasKey("musicVolume"))
-        {
-            musicVolume = PlayerPrefs.GetFloat("musicVolume");
-            audioSource.volume = musicVolume;
-        }
-        else
-        {
-            musicVolume = 1.0f; // Default volume if no saved value exists
-        }
+        musicVolume = PlayerPrefs.GetFloat("musicVolume", 1.0f); // Load saved volume or default to 1.0f
+        audioSource.volume = musicVolume;
     }
 
-    private void Update()
+    void Update()
     {
-        audioSource.volume = musicVolume;  // Correct property name
+        audioSource.volume = musicVolume; // Update the AudioSource volume
     }
 
-    public void UpdateVolume(float volume)  // Use PascalCase for method names
+    public void UpdateVolume(float volume)
     {
         musicVolume = volume;
-        PlayerPrefs.SetFloat("musicVolume", musicVolume);
-        PlayerPrefs.Save();  // Ensure the volume is saved
+        PlayerPrefs.SetFloat("musicVolume", musicVolume); // Save the current volume
+        PlayerPrefs.Save();
     }
 }

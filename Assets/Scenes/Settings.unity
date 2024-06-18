@@ -4184,7 +4184,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sliderText: {fileID: 840901533}
+  volumeSlider: {fileID: 39874569}
   maxSliderAmount: 100
+  musicPlayer: {fileID: 1197322477}
 --- !u!4 &1782746293
 Transform:
   m_ObjectHideFlags: 0

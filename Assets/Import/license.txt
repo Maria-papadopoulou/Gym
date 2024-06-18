@@ -1,0 +1,11 @@
+Model Information:
+* title:	Shop sign
+* source:	https://sketchfab.com/3d-models/shop-sign-ba3bd03ed8a847f1b014de27a41e4298
+* author:	vfxsan3d (https://sketchfab.com/Sanket.Raut)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Shop sign" (https://sketchfab.com/3d-models/shop-sign-ba3bd03ed8a847f1b014de27a41e4298) by vfxsan3d (https://sketchfab.com/Sanket.Raut) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

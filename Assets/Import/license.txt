@@ -1,8 +1,0 @@
-Model Information:
-* title:	Desk With Drawers
-* source:	https://sketchfab.com/3d-models/desk-with-drawers-e4e25f16e17b4071a145338d7ca0626a
-* author:	abyssant (https://sketchfab.com/abyssant)
-
-Model License:
-* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
-* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works

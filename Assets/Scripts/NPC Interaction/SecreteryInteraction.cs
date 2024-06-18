@@ -110,4 +110,21 @@ public class SecretaryInteraction : MonoBehaviour
         }
     }
 
+    public void unblockMovement()
+    {
+        if (player != null)
+        {
+            // Disable PlayerMovement script
+            PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+            if (playerMovement != null)
+            {
+                playerMovement.enabled = true;
+            }
+            else
+            {
+                Debug.LogError("PlayerMovement script not found on Player.");
+            }
+        }
+    }
+
 }

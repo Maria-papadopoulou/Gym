@@ -10,9 +10,11 @@ public class SecretaryInteraction : MonoBehaviour
     public TextMeshProUGUI interactionText;
     public TextMeshProUGUI keyText;
     public NPCConversation myConversation;
+    public GameObject cameraHolder; // Reference to the CameraHolder GameObject
 
     private bool isNearSecretary = false;
     private ConversationStarter conversationStarter;
+    private PlayerCam playerCam;
 
     void Start()
     {
@@ -38,6 +40,21 @@ public class SecretaryInteraction : MonoBehaviour
         else
         {
             Debug.LogError("Secretary Transform is not assigned.");
+        }
+
+        if (cameraHolder != null)
+        {
+            // Try to get the PlayerCam component from the CameraHolder GameObject
+            playerCam = cameraHolder.GetComponentInChildren<PlayerCam>();
+
+            if (playerCam == null)
+            {
+                Debug.LogError("PlayerCam component is not found in the CameraHolder.");
+            }
+        }
+        else
+        {
+            Debug.LogError("CameraHolder GameObject is not assigned.");
         }
     }
 
@@ -92,6 +109,11 @@ public class SecretaryInteraction : MonoBehaviour
             }
         }
 
+        if (playerCam != null)
+        {
+            playerCam.enabled = false; // Disable the PlayerCam script
+        }
+
         if (conversationStarter != null && myConversation != null)
         {
             // Start the conversation
@@ -114,7 +136,7 @@ public class SecretaryInteraction : MonoBehaviour
     {
         if (player != null)
         {
-            // Disable PlayerMovement script
+            // Enable PlayerMovement script
             PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
             if (playerMovement != null)
             {
@@ -125,6 +147,10 @@ public class SecretaryInteraction : MonoBehaviour
                 Debug.LogError("PlayerMovement script not found on Player.");
             }
         }
-    }
 
+        if (playerCam != null)
+        {
+            playerCam.enabled = true; // Enable the PlayerCam script
+        }
+    }
 }

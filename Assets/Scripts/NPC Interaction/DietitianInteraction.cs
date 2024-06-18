@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using DialogueEditor; // Make sure you have this if you're using Dialogue Editor for conversations
 
 public class DietitianInteraction : MonoBehaviour
 {
@@ -8,12 +9,53 @@ public class DietitianInteraction : MonoBehaviour
     public Canvas interactionCanvas;
     public TextMeshProUGUI interactionText;
     public TextMeshProUGUI keyText;
+    public NPCConversation myConversation;
+    public GameObject cameraHolder; // Reference to the CameraHolder GameObject
 
     private bool isNearSuzie = false;
+    private ConversationStarter conversationStarter;
+    private PlayerCam playerCam;
 
     void Start()
     {
-        interactionCanvas.enabled = false; // Hide the interaction UI initially
+        if (interactionCanvas != null)
+        {
+            interactionCanvas.enabled = false; // Hide the interaction UI initially
+        }
+        else
+        {
+            Debug.LogError("Interaction Canvas is not assigned.");
+        }
+
+        if (Suzie != null)
+        {
+            // Try to get the ConversationStarter component from Suzie GameObject
+            conversationStarter = Suzie.GetComponent<ConversationStarter>();
+
+            if (conversationStarter == null)
+            {
+                Debug.LogError("ConversationStarter component is not found on Suzie.");
+            }
+        }
+        else
+        {
+            Debug.LogError("Suzie Transform is not assigned.");
+        }
+
+        if (cameraHolder != null)
+        {
+            // Try to get the PlayerCam component from the CameraHolder GameObject
+            playerCam = cameraHolder.GetComponentInChildren<PlayerCam>();
+
+            if (playerCam == null)
+            {
+                Debug.LogError("PlayerCam component is not found in the CameraHolder.");
+            }
+        }
+        else
+        {
+            Debug.LogError("CameraHolder GameObject is not assigned.");
+        }
     }
 
     void Update()
@@ -25,29 +67,97 @@ public class DietitianInteraction : MonoBehaviour
         if (distance < 5.0f)
         {
             isNearSuzie = true;
-            interactionCanvas.enabled = true; // Show the interaction UI
-            keyText.text = "E";
-            interactionText.text = "Press E to talk";
+            if (interactionCanvas != null)
+            {
+                interactionCanvas.enabled = true; // Show the interaction UI
+                keyText.text = "E";
+                interactionText.text = "Press E to talk";
+            }
         }
         else
         {
             isNearSuzie = false;
-            interactionCanvas.enabled = false; // Hide the interaction UI
+            if (interactionCanvas != null)
+            {
+                interactionCanvas.enabled = false; // Hide the interaction UI
+            }
         }
 
         // Check if the player presses 'E'
         if (isNearSuzie && Input.GetKeyDown(KeyCode.E))
         {
-            // Perform the interaction, e.g., show a message
             ShowInteractionMessage();
         }
     }
 
     void ShowInteractionMessage()
     {
-        // Show a message or perform any action
-        interactionText.text = "Hello!";
-        // Optionally, hide the key prompt
-        keyText.text = "";
+        if (player != null)
+        {
+            // Disable PlayerMovement script
+            PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+            if (playerMovement != null)
+            {
+                playerMovement.enabled = false;
+            }
+            else
+            {
+                Debug.LogError("PlayerMovement script not found on Player.");
+            }
+        }
+
+        if (playerCam != null)
+        {
+            playerCam.enabled = false; // Disable the PlayerCam script
+        }
+
+        if (interactionCanvas != null)
+        {
+            interactionCanvas.enabled = false; // Hide the interaction UI
+        }
+
+        if (conversationStarter != null && myConversation != null)
+        {
+            // Start the conversation
+            conversationStarter.Resume(myConversation);
+        }
+        else
+        {
+            if (conversationStarter == null)
+            {
+                Debug.LogError("ConversationStarter component is not found on Suzie.");
+            }
+            if (myConversation == null)
+            {
+                Debug.LogError("myConversation is not assigned.");
+            }
+        }
+    }
+
+    public void unblockMovement()
+    {
+        if (player != null)
+        {
+            // Enable PlayerMovement script
+            PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+            if (playerMovement != null)
+            {
+                playerMovement.enabled = true;
+            }
+            else
+            {
+                Debug.LogError("PlayerMovement script not found on Player.");
+            }
+        }
+
+        if (playerCam != null)
+        {
+            playerCam.enabled = true; // Enable the PlayerCam script
+        }
+
+        if (interactionCanvas != null)
+        {
+            interactionCanvas.enabled = true; // Show the interaction UI
+        }
     }
 }

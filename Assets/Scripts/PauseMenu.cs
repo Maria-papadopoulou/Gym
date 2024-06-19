@@ -47,10 +47,6 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("Main Menu");
     }
 
-    public void Settings_button()
-    {
-        SceneManager.LoadScene("Settings");
-    }
 
     public void Exit_button()
     {

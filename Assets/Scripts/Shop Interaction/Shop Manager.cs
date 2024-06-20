@@ -37,11 +37,11 @@ public class ShopManager : MonoBehaviour
 
 
         // Prices
-        shopItems[1, 0] = 100;
-        shopItems[1, 1] = 200;
-        shopItems[1, 2] = 300;
-        shopItems[1, 3] = 400;
-        shopItems[1, 4] = 500;
+        shopItems[1, 0] = 15;
+        shopItems[1, 1] = 15;
+        shopItems[1, 2] = 30;
+        shopItems[1, 3] = 35;
+        shopItems[1, 4] = 20;
 
 
     }

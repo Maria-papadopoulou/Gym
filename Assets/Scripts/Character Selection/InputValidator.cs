@@ -26,7 +26,7 @@ public class InputValidator : MonoBehaviour
             SaveData();
             SaveDataToFile();
             // Uncomment if you want to load another scene after saving data
-            // LoadGameScene();
+            LoadGameScene();
         }
         else
         {

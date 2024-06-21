@@ -63,6 +63,5 @@ public class CharacterSelectionScript : MonoBehaviour
 
     public void ConfirmButton() {
         PlayerPrefs.SetInt("CharacterSelected", index);
-        SceneManager.LoadScene("Game");
     }
 }

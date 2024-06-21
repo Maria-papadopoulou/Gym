@@ -31,6 +31,8 @@ public class InputValidator : MonoBehaviour
         else
         {
             Debug.Log("Invalid input or empty fields. Please check your entries.");
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 
@@ -41,6 +43,8 @@ public class InputValidator : MonoBehaviour
             string.IsNullOrEmpty(muscleField.text))
         {
             Debug.Log("One or more fields are empty");
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             return false;
         }
         return true;

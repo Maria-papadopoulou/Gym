@@ -8,6 +8,8 @@ public class GameSceneScript : MonoBehaviour
     private int index;
 
     private void Start() {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         index = PlayerPrefs.GetInt("CharacterSelected", 0); // Default to 0 if not set
         characterList = new GameObject[transform.childCount];
 

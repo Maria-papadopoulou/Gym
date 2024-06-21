@@ -63,12 +63,5 @@ public class CharacterSelectionScript : MonoBehaviour
 
     public void ConfirmButton() {
         PlayerPrefs.SetInt("CharacterSelected", index);
-        // Pause the game
-        OpenInput.ShopIsPaused = true;
-        OpenInput shopMenu = FindObjectOfType<OpenInput>();
-        if (shopMenu != null)
-        {
-            shopMenu.Pause();
-        }
     }
 }

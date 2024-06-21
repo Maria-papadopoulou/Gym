@@ -55,6 +55,8 @@ public class ShopManager : MonoBehaviour
         if (coins >= shopItems[1, itemID - 1])  // Adjusted to match the array index
         {
             coins -= shopItems[1, itemID - 1];
+            PlayerPrefs.SetFloat("PlayerCoins", coins);
+            PlayerPrefs.Save();
             Coinstxt.text = "Coins: " + coins.ToString();
         }
     }

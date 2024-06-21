@@ -25,7 +25,8 @@ public class InputValidator : MonoBehaviour
         {
             SaveData();
             SaveDataToFile();
-            //LoadGameScene();
+            // Uncomment if you want to load another scene after saving data
+            // LoadGameScene();
         }
         else
         {
@@ -37,8 +38,7 @@ public class InputValidator : MonoBehaviour
     {
         if (string.IsNullOrEmpty(heightField.text) ||
             string.IsNullOrEmpty(weightField.text) ||
-            string.IsNullOrEmpty(muscleField.text) ||
-            genderDropdown.value == 0)
+            string.IsNullOrEmpty(muscleField.text))
         {
             Debug.Log("One or more fields are empty");
             return false;
@@ -50,46 +50,46 @@ public class InputValidator : MonoBehaviour
     {
         if (!IsValidNumber(heightField.text, out float height) || height < 1f || height > 2.3f)
         {
-            Debug.Log("Invalid height");
+            Debug.Log("Invalid height. Please enter a number between 1.0 and 2.3 meters.");
             return false;
         }
 
         if (!IsValidNumber(weightField.text, out float weight) || weight < 40f || weight > 200f)
         {
-            Debug.Log("Invalid weight");
+            Debug.Log("Invalid weight. Please enter a number between 40 and 200 kilograms.");
             return false;
         }
 
         if (!IsValidNumber(muscleField.text, out float muscle) || muscle < 10f || muscle > 90f)
         {
-            Debug.Log("Invalid muscle percentage");
+            Debug.Log("Invalid muscle percentage. Please enter a number between 10 and 90.");
             return false;
         }
 
         if (string.IsNullOrEmpty(fatField.text))
         {
-            // Calculate fat if the field is empty
+            // Calculate fat if not provided by the user
             float fat = 100f - muscle;
             if (fat < 10f || fat > 90f)
             {
-                Debug.Log("Calculated fat percentage out of valid range");
+                Debug.Log("Calculated fat percentage is out of valid range (10 - 90%).");
                 return false;
             }
-            fatField.text = fat.ToString("F2", CultureInfo.InvariantCulture); // Update the UI with calculated fat
+            fatField.text = fat.ToString("F2", CultureInfo.InvariantCulture); // Update UI with calculated fat
         }
         else
         {
             // Validate user-entered fat value
             if (!IsValidNumber(fatField.text, out float fat) || fat < 0f || fat > 90f || Mathf.Abs(muscle + fat - 100f) > 0.01f)
             {
-                Debug.Log("Invalid fat percentage or sum of muscle and fat does not equal 100%");
+                Debug.Log("Invalid fat percentage. Please enter a number between 0 and 90, ensuring that muscle + fat equals 100%.");
                 return false;
             }
         }
 
         if (genderDropdown.value == 0)
         {
-            Debug.Log("Invalid gender selection");
+            Debug.Log("Invalid gender selection. Please choose a gender.");
             return false;
         }
 
@@ -98,21 +98,49 @@ public class InputValidator : MonoBehaviour
 
     private bool IsValidNumber(string input, out float result)
     {
-        input = input.Replace(',', '.'); // Replace comma with dot
-        return float.TryParse(input, NumberStyles.Float, CultureInfo.InvariantCulture, out result);
+        // Try parsing the input as float or integer using invariant culture
+        if (int.TryParse(input, out int intValue))
+        {
+            result = (float)intValue;
+            return true;
+        }
+        else if (float.TryParse(input, NumberStyles.Float, CultureInfo.InvariantCulture, out float floatValue))
+        {
+            result = floatValue;
+            return true;
+        }
+        else
+        {
+            result = 0f;
+            return false;
+        }
     }
 
     private void SaveData()
     {
+        // Save data to PlayerPrefs
         PlayerPrefs.SetFloat("Height", float.Parse(heightField.text.Replace(',', '.')));
         PlayerPrefs.SetFloat("Weight", float.Parse(weightField.text.Replace(',', '.')));
         PlayerPrefs.SetFloat("Muscle", float.Parse(muscleField.text.Replace(',', '.')));
-        PlayerPrefs.SetFloat("Fat", float.Parse(fatField.text.Replace(',', '.')));
+
+        // If fatField is empty, calculate fat
+        float fat;
+        if (string.IsNullOrEmpty(fatField.text))
+        {
+            fat = 100f - float.Parse(muscleField.text.Replace(',', '.'));
+        }
+        else
+        {
+            fat = float.Parse(fatField.text.Replace(',', '.'));
+        }
+
+        PlayerPrefs.SetFloat("Fat", fat);
         PlayerPrefs.SetInt("Gender", genderDropdown.value);
     }
 
     private void SaveDataToFile()
     {
+        // Prepare data to save in a text file
         string dataPath = Application.persistentDataPath + "/UserData.txt";
         string dateTime = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
         string data = $"Date and Time: {dateTime}\n" +
@@ -122,12 +150,14 @@ public class InputValidator : MonoBehaviour
                       $"Fat: {fatField.text}\n" +
                       $"Gender: {genderDropdown.options[genderDropdown.value].text}\n\n";
 
+        // Append data to file
         File.AppendAllText(dataPath, data);
         Debug.Log($"Data saved to {dataPath}");
     }
 
     private void LoadGameScene()
     {
+        // Load another scene if needed
         SceneManager.LoadScene("Game");
     }
 }

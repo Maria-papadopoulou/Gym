@@ -140,6 +140,8 @@ public class InputValidator : MonoBehaviour
 
         PlayerPrefs.SetFloat("Fat", fat);
         PlayerPrefs.SetInt("Gender", genderDropdown.value);
+        PlayerPrefs.SetFloat("Energy", 100);
+        PlayerPrefs.Save();
     }
 
     private void SaveDataToFile()

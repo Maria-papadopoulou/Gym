@@ -36,7 +36,7 @@ public class FatBar : MonoBehaviour
         // Update the fat text
         if (fatText != null)
         {
-            fatText.text = currentFat.ToString("0");
+            fatText.text = currentFat.ToString();
         }
 
         // Update the status text (optional)

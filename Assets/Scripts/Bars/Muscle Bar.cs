@@ -36,7 +36,7 @@ public class MuscleBar : MonoBehaviour
         // Update the muscle text
         if (muscleText != null)
         {
-            muscleText.text = currentMuscle.ToString("0");
+            muscleText.text = currentMuscle.ToString();
         }
 
         // Update the status text (optional)

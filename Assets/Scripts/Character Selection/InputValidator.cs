@@ -102,40 +102,26 @@ public class InputValidator : MonoBehaviour
 
     private bool IsValidNumber(string input, out float result)
     {
-        // Try parsing the input as float or integer using invariant culture
-        if (int.TryParse(input, out int intValue))
-        {
-            result = (float)intValue;
-            return true;
-        }
-        else if (float.TryParse(input, NumberStyles.Float, CultureInfo.InvariantCulture, out float floatValue))
-        {
-            result = floatValue;
-            return true;
-        }
-        else
-        {
-            result = 0f;
-            return false;
-        }
+        // Try parsing the input as float using invariant culture
+        return float.TryParse(input.Replace(',', '.'), NumberStyles.Float, CultureInfo.InvariantCulture, out result);
     }
 
     private void SaveData()
     {
         // Save data to PlayerPrefs
-        PlayerPrefs.SetFloat("Height", float.Parse(heightField.text.Replace(',', '.')));
-        PlayerPrefs.SetFloat("Weight", float.Parse(weightField.text.Replace(',', '.')));
-        PlayerPrefs.SetFloat("Muscle", float.Parse(muscleField.text.Replace(',', '.')));
+        PlayerPrefs.SetFloat("Height", float.Parse(heightField.text.Replace(',', '.'), CultureInfo.InvariantCulture));
+        PlayerPrefs.SetFloat("Weight", float.Parse(weightField.text.Replace(',', '.'), CultureInfo.InvariantCulture));
+        PlayerPrefs.SetFloat("Muscle", float.Parse(muscleField.text.Replace(',', '.'), CultureInfo.InvariantCulture));
 
         // If fatField is empty, calculate fat
         float fat;
         if (string.IsNullOrEmpty(fatField.text))
         {
-            fat = 100f - float.Parse(muscleField.text.Replace(',', '.'));
+            fat = 100f - float.Parse(muscleField.text.Replace(',', '.'), CultureInfo.InvariantCulture);
         }
         else
         {
-            fat = float.Parse(fatField.text.Replace(',', '.'));
+            fat = float.Parse(fatField.text.Replace(',', '.'), CultureInfo.InvariantCulture);
         }
 
         PlayerPrefs.SetFloat("Fat", fat);

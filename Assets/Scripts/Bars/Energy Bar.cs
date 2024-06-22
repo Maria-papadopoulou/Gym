@@ -4,9 +4,11 @@ using TMPro;
 
 public class EnergyBar : MonoBehaviour
 {
+    [Header("UI Elements")]
     public Image energyBarFill; // The Image component that represents the fill of the energy bar
     public TMP_Text energyText; // The TextMeshPro component to display the current energy
 
+    [Header("Settings")]
     public float maxEnergy = 100f; // The maximum energy value
 
     private float currentEnergy;
@@ -34,7 +36,7 @@ public class EnergyBar : MonoBehaviour
         // Update the energy text
         if (energyText != null)
         {
-            energyText.text = currentEnergy.ToString("0");
+            energyText.text = currentEnergy.ToString();
         }
 
         // Update the status text (optional)

@@ -19,6 +19,12 @@ public class EnergyBar : MonoBehaviour
         UpdateEnergyBar();
     }
 
+    private void Update()
+    {
+        LoadEnergy();
+        UpdateEnergyBar();
+    }
+
     void LoadEnergy()
     {
         // Load the energy value from PlayerPrefs
@@ -39,15 +45,15 @@ public class EnergyBar : MonoBehaviour
             energyText.text = currentEnergy.ToString();
         }
 
-        // Update the status text (optional)
        
     }
 
     // You can call this method to update the energy bar if the energy value changes during the game
     public void SetEnergy(float newEnergy)
     {
-        currentEnergy = Mathf.Clamp(newEnergy, 0, maxEnergy);
+        currentEnergy = newEnergy;
         PlayerPrefs.SetFloat("Energy", currentEnergy);
+        PlayerPrefs.Save();
         UpdateEnergyBar();
     }
 }

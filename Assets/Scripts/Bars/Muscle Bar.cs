@@ -19,6 +19,12 @@ public class MuscleBar : MonoBehaviour
         UpdateMuscleBar();
     }
 
+    private void Update()
+    {
+        LoadMuscle();
+        UpdateMuscleBar();
+    } 
+
     void LoadMuscle()
     {
         // Load the muscle value from PlayerPrefs
@@ -39,15 +45,7 @@ public class MuscleBar : MonoBehaviour
             muscleText.text = currentMuscle.ToString();
         }
 
-        // Update the status text (optional)
         
     }
 
-    // You can call this method to update the muscle bar if the muscle value changes during the game
-    public void SetMuscle(float newMuscle)
-    {
-        currentMuscle = Mathf.Clamp(newMuscle, 0, maxMuscle);
-        PlayerPrefs.SetFloat("Muscle", currentMuscle);
-        UpdateMuscleBar();
-    }
 }

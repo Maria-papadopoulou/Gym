@@ -19,10 +19,16 @@ public class FatBar : MonoBehaviour
         UpdateFatBar();
     }
 
+    private void Update() {
+        LoadFat();
+        UpdateFatBar();
+    }
+
     void LoadFat()
     {
         // Load the fat value from PlayerPrefs
         currentFat = PlayerPrefs.GetFloat("Fat", maxFat); // Default to maxFat if not found
+
     }
 
     void UpdateFatBar()
@@ -39,15 +45,7 @@ public class FatBar : MonoBehaviour
             fatText.text = currentFat.ToString();
         }
 
-        // Update the status text (optional)
         
     }
 
-    // You can call this method to update the fat bar if the fat value changes during the game
-    public void SetFat(float newFat)
-    {
-        currentFat = Mathf.Clamp(newFat, 0, maxFat);
-        PlayerPrefs.SetFloat("Fat", currentFat);
-        UpdateFatBar();
-    }
 }

@@ -19,6 +19,12 @@ public class EnergyBar : MonoBehaviour
         UpdateEnergyBar();
     }
 
+    private void Update()
+    {
+        LoadEnergy();
+        UpdateEnergyBar();
+    }
+
     void LoadEnergy()
     {
         // Load the energy value from PlayerPrefs
@@ -39,7 +45,6 @@ public class EnergyBar : MonoBehaviour
             energyText.text = currentEnergy.ToString();
         }
 
-        // Update the status text (optional)
        
     }
 
@@ -49,7 +54,6 @@ public class EnergyBar : MonoBehaviour
         currentEnergy = newEnergy;
         PlayerPrefs.SetFloat("Energy", currentEnergy);
         PlayerPrefs.Save();
-        Debug.Log("Energy: " + PlayerPrefs.GetFloat("Energy"));
         UpdateEnergyBar();
     }
 }

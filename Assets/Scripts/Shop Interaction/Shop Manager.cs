@@ -108,15 +108,6 @@ public class ShopManager : MonoBehaviour
             PlayerPrefs.SetFloat("Muscle", muscle);
             PlayerPrefs.SetFloat("Energy", energy);
             PlayerPrefs.Save();
-
-            EnergyBar myEnergyBar = new EnergyBar();
-            myEnergyBar.SetEnergy(PlayerPrefs.GetFloat("Energy"));
-            FatBar myFatBar = new FatBar();
-            myFatBar.SetFat(PlayerPrefs.GetFloat("Fat"));
-            MuscleBar myMuscleBar = new MuscleBar();
-            myMuscleBar.SetMuscle(PlayerPrefs.GetFloat("Muscle"));
-
-            
         }
     }
 

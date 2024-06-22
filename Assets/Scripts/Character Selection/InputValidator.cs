@@ -127,7 +127,7 @@ public class InputValidator : MonoBehaviour
         PlayerPrefs.SetFloat("Fat", fat);
         PlayerPrefs.SetInt("Gender", genderDropdown.value);
         PlayerPrefs.SetFloat("Energy", 100);
-        PlayerPrefs.SetFloat("PlayerCoins", 100);
+        PlayerPrefs.SetFloat("PlayerCoins", 0);
         PlayerPrefs.Save();
     }
 

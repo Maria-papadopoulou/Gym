@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
+using System.Globalization;
+using System.IO;
 
 public class ShopManager : MonoBehaviour
 {
@@ -108,6 +110,18 @@ public class ShopManager : MonoBehaviour
             PlayerPrefs.SetFloat("Muscle", muscle);
             PlayerPrefs.SetFloat("Energy", energy);
             PlayerPrefs.Save();
+
+            // Prepare data to save in a text file
+            string dataPath = Application.persistentDataPath + "/UserData.txt";
+            string dateTime = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
+            string data = $"Date and Time: {dateTime}\n" +
+                        $"Muscle: {PlayerPrefs.GetFloat("Muscle")}\n" +
+                        $"Coins: {PlayerPrefs.GetFloat("PlayerCoins")}\n" +
+                        $"Fat: {PlayerPrefs.GetFloat("Fat")}\n" +
+                        $"Energy: {PlayerPrefs.GetFloat("Energy")}\n\n";
+
+            // Append data to file
+            File.AppendAllText(dataPath, data);
         }
     }
 

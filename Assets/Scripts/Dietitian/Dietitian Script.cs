@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
 using UnityEngine;
 
 public class DietitianScript : MonoBehaviour
@@ -41,5 +43,15 @@ public class DietitianScript : MonoBehaviour
         coins -= 10;
         PlayerPrefs.SetFloat("PlayerCoins", coins);
         PlayerPrefs.Save();
+
+        // Prepare data to save in a text file
+            string dataPath = Application.persistentDataPath + "/UserData.txt";
+            string dateTime = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
+            string data = $"Date and Time: {dateTime}\n" +
+                        $"Dieititian:\n"+
+                        $"Coins: {PlayerPrefs.GetFloat("PlayerCoins")}\n";
+
+        // Append data to file
+        File.AppendAllText(dataPath, data);
     }
 }

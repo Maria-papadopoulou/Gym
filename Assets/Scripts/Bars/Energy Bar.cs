@@ -46,8 +46,10 @@ public class EnergyBar : MonoBehaviour
     // You can call this method to update the energy bar if the energy value changes during the game
     public void SetEnergy(float newEnergy)
     {
-        currentEnergy = Mathf.Clamp(newEnergy, 0, maxEnergy);
+        currentEnergy = newEnergy;
         PlayerPrefs.SetFloat("Energy", currentEnergy);
+        PlayerPrefs.Save();
+        Debug.Log("Energy: " + PlayerPrefs.GetFloat("Energy"));
         UpdateEnergyBar();
     }
 }

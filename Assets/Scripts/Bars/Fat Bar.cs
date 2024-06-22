@@ -46,8 +46,10 @@ public class FatBar : MonoBehaviour
     // You can call this method to update the fat bar if the fat value changes during the game
     public void SetFat(float newFat)
     {
-        currentFat = Mathf.Clamp(newFat, 0, maxFat);
+        currentFat = newFat;
         PlayerPrefs.SetFloat("Fat", currentFat);
+        PlayerPrefs.Save();
+        Debug.Log("Fat: " + PlayerPrefs.GetFloat("Fat"));
         UpdateFatBar();
     }
 }

@@ -46,8 +46,10 @@ public class MuscleBar : MonoBehaviour
     // You can call this method to update the muscle bar if the muscle value changes during the game
     public void SetMuscle(float newMuscle)
     {
-        currentMuscle = Mathf.Clamp(newMuscle, 0, maxMuscle);
+        currentMuscle = newMuscle;
         PlayerPrefs.SetFloat("Muscle", currentMuscle);
+        PlayerPrefs.Save();
+        Debug.Log("Muscle: " + PlayerPrefs.GetFloat("Muscle"));
         UpdateMuscleBar();
     }
 }

@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour
     public static bool GameIsPaused = false;
 
     public GameObject pauseMenuUI;
+     public GameObject onLineHelp;
 
     void Update()
     {
@@ -40,6 +41,14 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
+
+   
+
+  public void OnLineHelp()
+{
+    
+        onLineHelp.SetActive(true);
+}
 
     public void GoToMainMenu()
     {

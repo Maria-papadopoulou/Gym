@@ -42,7 +42,11 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
     }
 
-   
+    public void Settings_button()
+    {
+        SceneManager.LoadScene("Settings");
+
+    }
 
   public void OnLineHelp()
 {

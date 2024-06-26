@@ -15,8 +15,6 @@ public class Timer : MonoBehaviour
 
     void Start()
     {
-        // Σύνδεση της μεθόδου ToggleTimer με το κουμπί
-        toggleButton.onClick.AddListener(ToggleTimer);
 
         // Αρχικά κλειδώνουμε τον κέρσορα για να είναι πάντα ορατός
         Cursor.lockState = CursorLockMode.None;
@@ -54,25 +52,6 @@ public class Timer : MonoBehaviour
         else
         {
             timerText.color = Color.white;
-        }
-    }
-
-    // Μέθοδος για εναλλαγή της κατάστασης του χρονομέτρου
-    public void ToggleTimer()
-    {
-        isRunning = !isRunning;
-
-        if (isRunning)
-        {
-            // Ξεκινάμε τον χρονόμετρο: καταστολή κέρσορα σε κατάσταση None (ορατός)
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
-        else
-        {
-            // Σταματάμε τον χρονόμετρο: καταστολή κέρσορα σε κατάσταση None (ορατός)
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
         }
     }
 }

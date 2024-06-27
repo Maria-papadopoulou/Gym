@@ -6,6 +6,7 @@ public class CanvasSwap : MonoBehaviour
 {
     public Canvas canvas1;
     public Canvas canvas2;
+    
 
     public void ButtonClick() 
     {

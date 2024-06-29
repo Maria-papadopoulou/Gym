@@ -42,14 +42,14 @@ public class PlayerStatsUpdater : MonoBehaviour
 
         // Μείωση του fat κατά 5
         shopManager.fat -= 5;
-        if (shopManager.fat < 10)
+        if (shopManager.fat < 10f)
         {
             shopManager.fat = 10;
         }
 
         // Αύξηση του muscle κατά 5
         shopManager.muscle += 5;
-        if (shopManager.muscle > 90)
+        if (shopManager.muscle > 90f)
         {
             shopManager.muscle = 90;
         }
@@ -58,38 +58,39 @@ public class PlayerStatsUpdater : MonoBehaviour
         shopManager.fat = 100 - shopManager.muscle;
 
         // Βεβαιώσου ότι το fat και το muscle παραμένουν στα όρια (10, 90)
-        if (shopManager.fat < 10)
-        {
-            shopManager.fat = 10;
-            shopManager.muscle = 90;
-        }
-        else if (shopManager.fat > 90)
-        {
-            shopManager.fat = 90;
-            shopManager.muscle = 10;
-        }
+         if (shopManager.fat > 90)
+            {
+                float diff = shopManager.fat - 90;
+                shopManager.fat -= diff;
+                shopManager.muscle += diff;
+            }
+            else if (shopManager.fat < 10)
+            {
+                float diff = 10 - shopManager.fat;
+                shopManager.fat += diff;
+                shopManager.muscle -= diff;
+            }
 
-        if (shopManager.muscle < 10)
-        {
-            shopManager.muscle = 10;
-            shopManager.fat = 90;
-        }
-        else if (shopManager.muscle > 90)
-        {
-            shopManager.muscle = 90;
-            shopManager.fat = 10;
-        }
+            // Ensure muscle is within range (10, 90)
+            if (shopManager.muscle > 90)
+            {
+                float diff = shopManager.muscle - 90;
+                shopManager.muscle -= diff;
+                 shopManager.fat += diff;
+            }
+            else if ( shopManager.muscle < 10)
+            {
+                float diff = 10 -  shopManager.muscle;
+                 shopManager.muscle += diff;
+                 shopManager.fat -= diff;
+            }
 
-        // Μείωση του energy κατά 5
-        shopManager.energy -= 5;
-        if (shopManager.energy < 0)
-        {
-            shopManager.energy = 0;
-        }
-        else if (shopManager.energy > 100)
-        {
-            shopManager.energy = 100;
-        }
+            // Ensure energy is within range (0, 100)
+            if ( shopManager.energy > 100)
+            {
+                float diff =  shopManager.energy - 100;
+                 shopManager.energy -= diff;
+            }
 
         // Αποθήκευση των ενημερωμένων τιμών
         PlayerPrefs.SetFloat("PlayerCoins", shopManager.coins);

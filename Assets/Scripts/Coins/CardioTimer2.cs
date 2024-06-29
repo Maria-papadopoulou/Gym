@@ -92,8 +92,8 @@ public class CardioTimer2 : MonoBehaviour
 
     void UpdatePlayerStats()
     {
-        // Αύξηση των coins κατά 2
-        coins += 2;
+        // Αύξηση των coins κατά 1
+        coins += 1;
         // Μείωση του fat κατά 5
         fat -= 5;
         muscle += 5;

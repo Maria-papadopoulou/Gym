@@ -11,7 +11,7 @@ public class Timer : MonoBehaviour
     public TextMeshProUGUI timerText; // Αναφορά στο UI Text για εμφάνιση του χρονόμετρου
     public Button startButton; // Κουμπί έναρξης
     public Button stopButton; // Κουμπί διακοπής
-    private bool isRunning = false; // Αρχικά το χρονόμετρο δεν είναι ενεργό
+    public bool isRunning = false; // Αρχικά το χρονόμετρο δεν είναι ενεργό
 
     void Start()
     {

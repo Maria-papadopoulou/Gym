@@ -97,7 +97,7 @@ public class Timer : MonoBehaviour
         // Μείωση του fat κατά 5
         fat -= 5;
         muscle += 5;
-        energy+=5;
+        energy-=5;
 
 
         // Ensure fat is within range (10, 90)

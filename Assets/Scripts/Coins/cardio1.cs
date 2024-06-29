@@ -49,7 +49,7 @@ public class PlayerStatsUpdater : MonoBehaviour
         // Μείωση του fat κατά 5
         fat -= 5;
         muscle += 5;
-        energy+=5;
+        energy-=5;
 
 
         // Ensure fat is within range (10, 90)
@@ -98,20 +98,5 @@ public class PlayerStatsUpdater : MonoBehaviour
         PlayerPrefs.SetFloat("Muscle", muscle);
         PlayerPrefs.SetFloat("Energy", energy);
         PlayerPrefs.Save();
-
-        // Ενημέρωση του UI
-
-        // Προετοιμασία δεδομένων για αποθήκευση σε αρχείο κειμένου
-        string dataPath = Application.persistentDataPath + "/UserData.txt";
-        string dateTime = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
-        string data = $"Date and Time: {dateTime}\n" +
-                      $"Cardio1\n" +
-                      $"Muscle: {muscle}\n" +
-                      $"Coins: {coins}\n" +
-                      $"Fat: {fat}\n" +
-                      $"Energy: {energy}\n\n";
-
-        // Προσθήκη των δεδομένων στο αρχείο
-        System.IO.File.AppendAllText(dataPath, data);
     }
 }

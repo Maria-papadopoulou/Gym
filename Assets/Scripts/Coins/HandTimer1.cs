@@ -153,7 +153,7 @@ public class HandTimer1 : MonoBehaviour
         string dataPath = Application.persistentDataPath + "/UserData.txt";
         string dateTime = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
         string data = $"Date and Time: {dateTime}\n" +
-                      $"Cardio1\n" +
+                      $"Hand1\n" +
                       $"Muscle: {muscle}\n" +
                       $"Coins: {coins}\n" +
                       $"Fat: {fat}\n" +

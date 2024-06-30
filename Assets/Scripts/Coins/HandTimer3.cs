@@ -4,18 +4,20 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class HandTimer3 : MonoBehaviour
+public class HandsTimer3 : MonoBehaviour
 {
     private float startTime;
     private float elapsedTime;
     public TextMeshProUGUI timerText; // Αναφορά στο UI Text για εμφάνιση του χρονόμετρου
     public Button startButton; // Κουμπί έναρξης
     public Button stopButton; // Κουμπί διακοπής
-    public bool isRunning = false; // Αρχικά το χρονόμετρο δεν είναι ενεργό
-    public float coins;
-    public float fat;
-    public float muscle;
-    public float energy;
+    private bool isRunning = false; // Αρχικά το χρονόμετρο δεν είναι ενεργό
+    private float coins;
+    private float fat;
+    private float muscle;
+    private float energy;
+
+    private float lastUpdateTime; // Variable to track the last time stats were updated
 
     void Start()
     {
@@ -31,9 +33,11 @@ public class HandTimer3 : MonoBehaviour
         stopButton.onClick.AddListener(TimerStop);
         // fetch
         coins = PlayerPrefs.GetFloat("PlayerCoins");
-        fat=PlayerPrefs.GetFloat("Fat");
-        muscle=PlayerPrefs.GetFloat("Muscle");
-        energy=PlayerPrefs.GetFloat("Energy");
+        fat = PlayerPrefs.GetFloat("Fat");
+        muscle = PlayerPrefs.GetFloat("Muscle");
+        energy = PlayerPrefs.GetFloat("Energy");
+
+        lastUpdateTime = 0; // Initialize the last update time
     }
 
     public void TimerStart()
@@ -65,6 +69,13 @@ public class HandTimer3 : MonoBehaviour
             elapsedTime = Time.time - startTime;
             UpdateTimerDisplay(elapsedTime);
             UpdateTextColor(elapsedTime);
+
+            // Check if 3 seconds have passed since the last update
+            if (Time.time - lastUpdateTime >= 3)
+            {
+                UpdatePlayerStats();
+                lastUpdateTime = Time.time; // Update the last update time
+            }
         }
     }
 
@@ -75,7 +86,7 @@ public class HandTimer3 : MonoBehaviour
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
-   void UpdateTextColor(float elapsedTime)
+    void UpdateTextColor(float elapsedTime)
     {
         int remainder = Mathf.FloorToInt(elapsedTime) % 4;
 
@@ -86,19 +97,17 @@ public class HandTimer3 : MonoBehaviour
         else if (remainder >= 1 && remainder <= 3)
         {
             timerText.color = Color.red;
-            UpdatePlayerStats();
         }
     }
 
     void UpdatePlayerStats()
     {
-        // Αύξηση των coins κατά 3
+        // Αύξηση των coins κατά 2
         coins += 3;
         // Μείωση του fat κατά 5
         fat -= 5;
         muscle += 5;
-        energy-=5;
-
+        energy -= 5;
 
         // Ensure fat is within range (10, 90)
         if (fat > 90)
@@ -153,7 +162,7 @@ public class HandTimer3 : MonoBehaviour
         string dataPath = Application.persistentDataPath + "/UserData.txt";
         string dateTime = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
         string data = $"Date and Time: {dateTime}\n" +
-                      $"Hand3\n" +
+                      $"Hands3\n" +
                       $"Muscle: {muscle}\n" +
                       $"Coins: {coins}\n" +
                       $"Fat: {fat}\n" +
@@ -162,5 +171,4 @@ public class HandTimer3 : MonoBehaviour
         // Προσθήκη των δεδομένων στο αρχείο
         System.IO.File.AppendAllText(dataPath, data);
     }
-
 }

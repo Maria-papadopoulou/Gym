@@ -17,6 +17,7 @@ public class BackTimer1 : MonoBehaviour
     public float muscle;
     public float energy;
 
+ private float lastUpdateTime; // Variable to track the last time stats were updated
     void Start()
     {
         // Αρχικά κλειδώνουμε τον κέρσορα για να είναι πάντα ορατός
@@ -34,6 +35,7 @@ public class BackTimer1 : MonoBehaviour
         fat=PlayerPrefs.GetFloat("Fat");
         muscle=PlayerPrefs.GetFloat("Muscle");
         energy=PlayerPrefs.GetFloat("Energy");
+        lastUpdateTime = 0; // Initialize the last update time
     }
 
     public void TimerStart()
@@ -65,6 +67,12 @@ public class BackTimer1 : MonoBehaviour
             elapsedTime = Time.time - startTime;
             UpdateTimerDisplay(elapsedTime);
             UpdateTextColor(elapsedTime);
+            // Check if 3 seconds have passed since the last update
+            if (Time.time - lastUpdateTime >= 3)
+            {
+                UpdatePlayerStats();
+                lastUpdateTime = Time.time; // Update the last update time
+            }
         }
     }
 
@@ -75,7 +83,7 @@ public class BackTimer1 : MonoBehaviour
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
-   void UpdateTextColor(float elapsedTime)
+      void UpdateTextColor(float elapsedTime)
     {
         int remainder = Mathf.FloorToInt(elapsedTime) % 4;
 
@@ -86,7 +94,6 @@ public class BackTimer1 : MonoBehaviour
         else if (remainder >= 1 && remainder <= 3)
         {
             timerText.color = Color.red;
-            UpdatePlayerStats();
         }
     }
 
@@ -153,7 +160,7 @@ public class BackTimer1 : MonoBehaviour
         string dataPath = Application.persistentDataPath + "/UserData.txt";
         string dateTime = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
         string data = $"Date and Time: {dateTime}\n" +
-                      $"Cardio1\n" +
+                      $"Back1\n" +
                       $"Muscle: {muscle}\n" +
                       $"Coins: {coins}\n" +
                       $"Fat: {fat}\n" +

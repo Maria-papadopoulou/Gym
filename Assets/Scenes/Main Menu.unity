@@ -512,7 +512,7 @@ GameObject:
   - component: {fileID: 579950611}
   - component: {fileID: 579950614}
   m_Layer: 5
-  m_Name: onlinehelp
+  m_Name: Online Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -584,7 +584,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 579950614}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: Exit_button
+        m_MethodName: Online_Help
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -5,9 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class OnlineHelp : MonoBehaviour
 {
-    public void Done_button()
+    public void GoToPreviousScene()
     {
         SceneManager.LoadScene("Main Menu");
     }
-   
 }

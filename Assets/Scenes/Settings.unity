@@ -2495,19 +2495,7 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 968436471}
-        m_TargetAssemblyTypeName: Fullscreen, Assembly-CSharp
-        m_MethodName: Change
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_IsOn: 1
 --- !u!1 &762985695
 GameObject:
@@ -2766,7 +2754,7 @@ GameObject:
   - component: {fileID: 968436472}
   - component: {fileID: 968436471}
   m_Layer: 0
-  m_Name: fullscreen
+  m_Name: FullscreenManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2784,6 +2772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07d02042a6a1b4aab960e94602e6abba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fullscreenToggle: {fileID: 743533344}
 --- !u!4 &968436472
 Transform:
   m_ObjectHideFlags: 0

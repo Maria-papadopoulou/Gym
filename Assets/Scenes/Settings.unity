@@ -762,6 +762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd49dcce0293f422a929cc0e4e225308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resolutionDropdown: {fileID: 1574055043}
 --- !u!4 &140993709
 Transform:
   m_ObjectHideFlags: 0
@@ -939,6 +940,18 @@ MonoBehaviour:
       - m_Target: {fileID: 222852094}
         m_TargetAssemblyTypeName: Settings, Assembly-CSharp
         m_MethodName: Done_button
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 140993708}
+        m_TargetAssemblyTypeName: ResolutionController, Assembly-CSharp
+        m_MethodName: OnDoneButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3699,6 +3712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd49dcce0293f422a929cc0e4e225308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resolutionDropdown: {fileID: 0}
 --- !u!1 &1613878186
 GameObject:
   m_ObjectHideFlags: 0

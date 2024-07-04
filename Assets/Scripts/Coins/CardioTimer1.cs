@@ -40,6 +40,8 @@ public class CardioTimer1 : MonoBehaviour
         lastUpdateTime = 0; // Initialize the last update time
     }
 
+    
+
     public void TimerStart()
     {
         if (!isRunning)
@@ -64,6 +66,11 @@ public class CardioTimer1 : MonoBehaviour
 
     void Update()
     {
+        // Load the saved coins from PlayerPrefs
+        coins = PlayerPrefs.GetFloat("PlayerCoins");
+        fat=PlayerPrefs.GetFloat("Fat");
+        muscle=PlayerPrefs.GetFloat("Muscle");
+        energy=PlayerPrefs.GetFloat("Energy");
         if (isRunning)
         {
             elapsedTime = Time.time - startTime;

@@ -26,29 +26,32 @@ public class ResolutionController : MonoBehaviour
     }
 
     // Method to set resolution based on dropdown selection
-    public void SetResolution(int width, int height)
+    public void SetResolution(int width, int height, bool fullscreen)
     {
-        Screen.SetResolution(width, height, FullScreenMode.Windowed);
-        Debug.Log($"Resolution set to {width}x{height}");
+        Screen.SetResolution(width, height, fullscreen ? FullScreenMode.ExclusiveFullScreen : FullScreenMode.Windowed);
+        Debug.Log($"Resolution set to {width}x{height} - Fullscreen: {fullscreen}");
 
-        // Save selected resolution to PlayerPrefs
+        // Save selected resolution and fullscreen state to PlayerPrefs
         PlayerPrefs.SetInt("ScreenWidth", width);
         PlayerPrefs.SetInt("ScreenHeight", height);
+        PlayerPrefs.SetInt("FullscreenState", fullscreen ? 1 : 0);
     }
 
     // Called when dropdown value changes
     void DropdownValueChanged(TMP_Dropdown change)
     {
         int index = change.value;
+        bool isFullscreen = PlayerPrefs.GetInt("FullscreenState", 0) == 1;
+
         switch (index)
         {
-            case 0: SetResolution(1366, 768); break;
-            case 1: SetResolution(1600, 900); break;
-            case 2: SetResolution(1920, 720); break;
-            case 3: SetResolution(1920, 1080); break;
-            case 4: SetResolution(1920, 1200); break;
-            case 5: SetResolution(2560, 1440); break;
-            case 6: SetResolution(2560, 1600); break;
+            case 0: SetResolution(1366, 768, isFullscreen); break;
+            case 1: SetResolution(1600, 900, isFullscreen); break;
+            case 2: SetResolution(1920, 720, isFullscreen); break;
+            case 3: SetResolution(1920, 1080, isFullscreen); break;
+            case 4: SetResolution(1920, 1200, isFullscreen); break;
+            case 5: SetResolution(2560, 1440, isFullscreen); break;
+            case 6: SetResolution(2560, 1600, isFullscreen); break;
             default: break;
         }
     }
@@ -58,7 +61,8 @@ public class ResolutionController : MonoBehaviour
     {
         int savedWidth = PlayerPrefs.GetInt("ScreenWidth", defaultWidth);
         int savedHeight = PlayerPrefs.GetInt("ScreenHeight", defaultHeight);
-        SetResolution(savedWidth, savedHeight);
+        bool isFullscreen = PlayerPrefs.GetInt("FullscreenState", 0) == 1;
+        SetResolution(savedWidth, savedHeight, isFullscreen);
 
         // Set dropdown value to match loaded resolution
         switch ($"{savedWidth}x{savedHeight}")

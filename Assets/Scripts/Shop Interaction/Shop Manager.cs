@@ -17,6 +17,21 @@ public class ShopManager : MonoBehaviour
 
     public Text Coinstxt;
 
+    void Update() {
+        // Load the saved coins from PlayerPrefs
+        if (PlayerPrefs.HasKey("PlayerCoins"))
+        {
+            coins = PlayerPrefs.GetFloat("PlayerCoins");
+            fat=PlayerPrefs.GetFloat("Fat");
+            muscle=PlayerPrefs.GetFloat("Muscle");
+            energy=PlayerPrefs.GetFloat("Energy");
+        }
+        else
+        {
+            coins = 0;
+        }
+        Coinstxt.text = "Coins: " + coins.ToString();
+    }
 
     void Start()
     {
